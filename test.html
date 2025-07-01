@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GA4 Test</title>
+  <!-- GA4 Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSB9SPY5V2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XSB9SPY5V2', { debug_mode: true }); // replace with your real GA4 ID
+    gtag('event', 'page_view', {
+      page_title: 'GA4 GitHub Pages Test',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  </script>
+</head>
+<body>
+  <h1>GA4 GitHub Pages Test</h1>
+</body>
+</html>
