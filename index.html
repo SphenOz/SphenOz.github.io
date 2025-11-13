@@ -1,10 +1,23 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Redirecting…</title></head>
-<body>
-<script>
-  // Pass query params through to your app
-  const query = location.search || '';
-  const target = 'tonality://callback' + query;
-  window.location.replace(target);
-</script>
-</body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spotify Redirect</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>body{font-family:system-ui;margin:2rem;text-align:center}</style>
+  </head>
+  <body>
+    <h3>Finishing Spotify login…</h3>
+    <script>
+      // Combine query & hash params (Spotify might use either)
+      const q = location.search || '';
+      const h = location.hash ? location.hash.replace(/^#/, '') : '';
+      const join = (a,b) => !a && !b ? '' : a && !b ? a : !a && b ? '?' + b : a + '&' + b;
+      const params = join(q, h);
+
+      // Redirect into your mobile app via its scheme
+      const target = 'tonality://' + params;
+      window.location.replace(target);
+    </script>
+  </body>
+</html>
