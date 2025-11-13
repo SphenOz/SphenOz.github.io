@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tonality – Spotify Auth Redirect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+        background: #f5f7f6;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin-top: 0;
+        color: #666;
+      }
+      a {
+        margin-top: 2rem;
+        text-decoration: none;
+        color: #1DB954;
+        border: 1px solid #1DB954;
+        border-radius: 6px;
+        padding: 0.6rem 1rem;
+      }
+      a:hover {
+        background: #1DB954;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tonality</h1>
+    <p>Spotify Authentication Redirect Host</p>
+
+    <a href="./callback/">Go to Callback Page</a>
+
+    <script>
+      // Optional: if query params are present, forward them to /callback
+      if (location.search || location.hash) {
+        const q = location.search || '';
+        const h = location.hash ? location.hash.replace(/^#/, '') : '';
+        const join = (a, b) =>
+          !a && !b ? '' : a && !b ? a : !a && b ? '?' + b : a + '&' + b;
+        const params = join(q, h);
+        location.replace('./callback/' + params);
+      }
+    </script>
+  </body>
+</html>
